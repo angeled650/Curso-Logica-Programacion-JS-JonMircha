@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 22</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ejercicio 22</h1>
+  <p>
+    Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1,
+    4, 5,
+    99, -60]) devolverá [99, -60].
+  </p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br><br>
+  <hr>
+  <a href="../index.html">Regresar a la Página Principal</a>
+
+  <script>
+    //22) Programa una función que dado un array devuelva el número mas alto y el más bajo de dicho array, pe. miFuncion([1, 4, 5, 99, -60]) devolverá [99, -60].
+    const $btn = document.getElementById("btn");
+
+    $btn.addEventListener("click", e => {
+      let tamanioArreglo = prompt("Ingrese el tamaño del arreglo: ");
+      let tamanio = parseInt(tamanioArreglo);
+
+      const validaciones = (tamanio = undefined) => {
+        if (!tamanio) {
+          return alert("No ha ingresado ningún número.");
+        }
+
+        if (isNaN(tamanio) == true) {
+          return alert("No ha ingresado un número válido.")
+        }
+
+        if ((Math.sign(tamanio) === -1)) {
+          return alert("No puede ingresar un número negativo.");
+        }
+
+        return true;
+      }
+
+      const validaciones2 = (tamanio = undefined) => {
+        if (!tamanio) {
+          return alert("No ha ingresado ningún número.");
+        }
+
+        if (isNaN(tamanio) == true) {
+          return alert("No ha ingresado un número válido.")
+        }
+
+        return true;
+      }
+
+      const llenarArreglo = (tamanio) => {
+        let arreglo = [];
+        for (i = 0; i < tamanio; i++) {
+          let elemento = prompt(`Ingrese el elemento #${i + 1} del arreglo: `);
+          let elemen = parseInt(elemento);
+
+          if (validaciones2(elemen) == true) {
+            arreglo.push(elemen);
+          } else {
+            return;
+          }
+        }
+        minMax(arreglo);
+      }
+
+      const minMax = (arreglo) => {
+        let min = 999;
+        let max = -999;
+        let min2 = 0;
+        let max2 = 0;
+
+        let tam = arreglo.length;
+        for (i = 0; i < tam; i++) {
+          if (arreglo[i] <= min) {
+            min = arreglo[i];
+          }
+          if (arreglo[i] >= max) {
+            max = arreglo[i];
+          }
+        }
+
+        alert(`El arreglo original es: [${arreglo}] | El menor y mayor elemento del arreglo son: [${min}, ${max}]`);
+      }
+
+      if (validaciones(tamanio) == true) {
+        llenarArreglo(tamanio);
+      }
+    })
+  </script>
+</body>
+
+</html>

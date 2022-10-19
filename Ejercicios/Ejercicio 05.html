@@ -28,30 +28,34 @@
     Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM
     aloH".
   </p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br><br>
   <hr>
-  <a href="./index.html">Regregar a la Página Principal</a>
+  <a href="../index.html">Regresar a la Página Principal</a>
 
   <script>
     //5) Programa una función que invierta las palabras de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá "odnuM aloH".
+    const $btn = document.getElementById("btn");
 
-    const invertirPalabra = (palabra = "") => {
-      if (!palabra) {
-        alert("No ha ingresado una cadena de texto.");
-      } else {
-        let invertida = [];
-        for (i = palabra.length - 1; i >= 0; i--) {
-          /* Otra opción: 
-          console.log(`Palabra invertida: ${palabra[i]} `); */
+    $btn.addEventListener("click", e => {
+      const invertirPalabra = (palabra = "") => {
+        if (!palabra) {
+          alert("No ha ingresado una cadena de texto.");
+        } else {
+          let invertida = [];
+          for (i = palabra.length - 1; i >= 0; i--) {
+            /* Otra opción: 
+            console.log(`Palabra invertida: ${palabra[i]} `); */
 
-          invertida.push(palabra[i]);
+            invertida.push(palabra[i]);
+          }
+          console.log(`Palabra invertida: ${invertida.join('')}`);
         }
-        console.log(`Palabra invertida: ${invertida.join('')}`);
       }
-    }
 
-    let palabra = prompt("Ingrese una cadena de texto: ");
-    invertirPalabra(palabra);
-
+      let palabra = prompt("Ingrese una cadena de texto: ");
+      invertirPalabra(palabra);
+    })
   </script>
 </body>
 

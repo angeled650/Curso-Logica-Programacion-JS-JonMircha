@@ -28,32 +28,36 @@
     Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola
     mundo adios mundo", "mundo") devolverá 2.
   </p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br><br>
   <hr>
-  <a href="./index.html">Regregar a la Página Principal</a>
+  <a href="../index.html">Regresar a la Página Principal</a>
 
 
   <script>
     //6) Programa una función para contar el número de veces que se repite una palabra en un texto largo, pe. miFuncion("hola mundo adios mundo", "mundo") devolverá 2.
+    const $btn = document.getElementById("btn");
 
-    const repitePalabra = (palabra = "", repite = "") => {
-      palabra2 = palabra.toLocaleUpperCase();
-      repite2 = repite.toLocaleUpperCase();
+    $btn.addEventListener("click", e => {
+      const repitePalabra = (palabra = "", repite = "") => {
+        palabra2 = palabra.toLocaleUpperCase();
+        repite2 = repite.toLocaleUpperCase();
 
-      let arreglo = [...palabra2.matchAll(repite2)]
+        let arreglo = [...palabra2.matchAll(repite2)]
 
-      if (!palabra || !repite) {
-        alert("No ha ingresado una cadena de texto.");
-      } else {
-        let veces = arreglo.length;
-        console.log(`La palabra ${repite} se repite: ${veces}`);
+        if (!palabra || !repite) {
+          alert("No ha ingresado una cadena de texto.");
+        } else {
+          let veces = arreglo.length;
+          console.log(`La palabra ${repite} se repite: ${veces}`);
+        }
       }
-    }
 
-    let palabra = prompt("Ingrese una cadena de texto: ");
-    let repite = prompt("Ingrese la palabra a buscar: ");
+      let palabra = prompt("Ingrese una cadena de texto: ");
+      let repite = prompt("Ingrese la palabra a buscar: ");
 
-    repitePalabra(palabra, repite);
-
+      repitePalabra(palabra, repite);
+    })
   </script>
 </body>
 

@@ -27,25 +27,29 @@
   <p>Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe.
     miFuncion("Hola
     Mundo", 4) devolverá "Hola".</p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br><br>
   <hr>
-  <a href="./index.html">Regregar a la Página Principal</a>
+  <a href="../index.html">Regresar a la Página Principal</a>
   <script>
     //2) Programa una función que te devuelva el texto recortado según el número de caracteres indicados, pe. miFuncion("Hola Mundo", 4) devolverá "Hola".
+    const $btn = document.getElementById("btn");
 
-    let pro = prompt("Ingrese una cadena de texto: ");
-    console.log(`Cadena antes de recortar: ${pro}`);
+    $btn.addEventListener("click", e => {
+      let pro = prompt("Ingrese una cadena de texto: ");
+      console.log(`Cadena antes de recortar: ${pro}`);
 
-    function text_cor(cad, a) {
-      cadena = cad.slice(0, a);
-      console.log(`Cadena después de recortar: ${cadena}`);
-    }
+      function text_cor(cad, a) {
+        cadena = cad.slice(0, a);
+        console.log(`Cadena después de recortar: ${cadena}`);
+      }
 
-    let fin = prompt("Ingrese el número de caracteres que desea guardar: ");
+      let fin = prompt("Ingrese el número de caracteres que desea guardar: ");
 
-    let num_fin = parseInt(fin, 10);
+      let num_fin = parseInt(fin, 10);
 
-    text_cor(pro, num_fin);
-
+      text_cor(pro, num_fin);
+    })
   </script>
 </body>
 

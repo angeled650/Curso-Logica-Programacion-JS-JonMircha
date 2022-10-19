@@ -29,28 +29,32 @@
     y
     xyz5", "xyz") devolverá "1, 2, 3, 4 y 5.
   </p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br><br>
   <hr>
-  <a href="./index.html">Regregar a la Página Principal</a>
+  <a href="../index.html">Regresar a la Página Principal</a>
 
 
   <script>
     //8) Programa una función que elimine cierto patrón de caracteres de un texto dado, pe. miFuncion("xyz1, xyz2, xyz3, xyz4 y xyz5", "xyz") devolverá  "1, 2, 3, 4 y 5.
+    const $btn = document.getElementById("btn");
 
-    const eliminarCarac = (palabra = "", eliminar = "") => {
-      let Rego = new RegExp(eliminar, 'g');
-      let nueva = palabra.replace(Rego, "");
+    $btn.addEventListener("click", e => {
+      const eliminarCarac = (palabra = "", eliminar = "") => {
+        let Rego = new RegExp(eliminar, 'g');
+        let nueva = palabra.replace(Rego, "");
 
-      if (!palabra || !eliminar) {
-        alert("No ha ingresado una cadena de texto.");
-      } else {
-        console.log(`La nueva cadena de texto es: ${nueva}`);
+        if (!palabra || !eliminar) {
+          alert("No ha ingresado una cadena de texto.");
+        } else {
+          console.log(`La nueva cadena de texto es: ${nueva}`);
+        }
+
       }
-
-    }
-    let palabra = prompt("Ingrese una cadena de texto: ");
-    let eliminar = prompt("Ingrese un patrón de caracteres: ");
-    eliminarCarac(palabra, eliminar);
-
+      let palabra = prompt("Ingrese una cadena de texto: ");
+      let eliminar = prompt("Ingrese un patrón de caracteres: ");
+      eliminarCarac(palabra, eliminar);
+    })
   </script>
 </body>
 

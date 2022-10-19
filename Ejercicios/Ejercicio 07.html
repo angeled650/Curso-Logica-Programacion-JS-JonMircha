@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 7</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ejercicio 7</h1>
+  <p>
+    Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en
+    otro), pe. mifuncion("Salas") devolverá true.
+  </p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br><br>
+  <hr>
+  <a href="../index.html">Regresar a la Página Principal</a>
+
+
+  <script>
+    //7) Programa una función que valide si una palabra o frase dada, es un palíndromo (que se lee igual en un sentido que en otro), pe. mifuncion("Salas") devolverá true.
+    const $btn = document.getElementById("btn");
+
+    $btn.addEventListener("click", e => {
+      const palindroma = (palabra = "") => {
+        let invertida = [];
+        if (!palabra) {
+          alert("No ha ingresado una cadena de texto.");
+        } else {
+          for (i = palabra.length - 1; i >= 0; i--) {
+            invertida.push(palabra[i]);
+          }
+        }
+        paInvertida = invertida.join('');
+
+        palabra = palabra.toLowerCase();
+        paInvertida = paInvertida.toLowerCase();
+
+        (palabra === paInvertida)
+          ? console.log("La palabra/frase es palíndroma.")
+          : console.log("La palabra/frase ingresada no es palíndroma.");
+      }
+      let palabra = prompt("Ingrese una cadena de texto: ");
+      palindroma(palabra);
+    })
+  </script>
+</body>
+
+</html>
