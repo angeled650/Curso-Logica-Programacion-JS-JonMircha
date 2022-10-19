@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 21</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ejercicio 21</h1>
+  <p>
+    Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe.
+    mi_funcion([1, 4, 5]) devolverá [1, 16, 25]
+  </p>
+  <hr>
+  <a href="./index.html">Regregar a la Página Principal</a>
+
+  <script>
+    //21) Programa una función que dado un array numérico devuelve otro array con los números elevados al cuadrado, pe. mi_funcion([1, 4, 5]) devolverá [1, 16, 25]
+
+    let tamanioArreglo = prompt("Ingrese el tamaño del arreglo: ");
+    let tamanio = parseInt(tamanioArreglo);
+
+    const validaciones = (tamanio = undefined) => {
+      if (!tamanio) {
+        return alert("No ha ingresado ningún número.");
+      }
+
+      if (isNaN(tamanio) == true) {
+        return alert("No ha ingresado un número válido.")
+      }
+
+      if ((Math.sign(tamanio) === -1)) {
+        return alert("No puede ingresar un número negativo.");
+      }
+
+      return true;
+    }
+
+    const llenarArreglo = (tamanio) => {
+      let arreglo = [];
+      for (i = 0; i < tamanio; i++) {
+        let elemento = prompt(`Ingrese el elemento #${i + 1} del arreglo: `);
+        let elemen = parseInt(elemento);
+
+        if (validaciones(elemen) == true) {
+          arreglo.push(elemen);
+        } else {
+          return;
+        }
+      }
+      potencia(arreglo);
+    }
+
+    const potencia = (arreglo) => {
+      let pot = [];
+      let tam = arreglo.length;
+      for (i = 0; i < tam; i++) {
+        pot[i] = Math.pow(arreglo[i], 2);
+      }
+
+      alert(`El arreglo original es: [${arreglo}] | El arreglo con las potencias es: [${pot}]`);
+    }
+
+    if (validaciones(tamanio) == true) {
+      llenarArreglo(tamanio);
+    }
+
+  </script>
+</body>
+
+</html>

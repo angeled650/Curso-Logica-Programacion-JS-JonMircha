@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 20</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ejercicio 20</h1>
+  <p>
+    Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá
+    verdadero.
+  </p>
+  <hr>
+  <a href="./index.html">Regregar a la Página Principal</a>
+
+  <script>
+    //20) Programa una función que valide que un texto sea un email válido, pe. miFuncion("jonmircha@gmail.com") devolverá verdadero.
+
+    let cadena = prompt("Ingrese su email: ");
+
+    const validaciones = (cad = "") => {
+      if (!cad) {
+        return alert("No ha ingresado ningun correo.");
+      }
+
+      validarEmail(cad);
+    }
+
+    const validarEmail = (email) => {
+      let validar = /^^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+
+      if (validar.test(email) === true) {
+        alert(`${email} es un email válido.`);
+      } else {
+        alert(`${email} no es un email válido.`);
+      }
+    }
+
+    validaciones(cadena);
+
+  </script>
+</body>
+
+</html>

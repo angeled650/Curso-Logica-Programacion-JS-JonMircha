@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 11</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ejercicio 11</h1>
+  <p>
+    Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el
+    producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+  </p>
+  <hr>
+  <a href="./index.html">Regregar a la Página Principal</a>
+
+
+  <script>
+    //11) Programa una función que calcule el factorial de un número (El factorial de un entero positivo n, se define como el producto de todos los números enteros positivos desde 1 hasta n), pe. miFuncion(5) devolverá 120.
+
+    let cad = prompt("Ingrese un número: ");
+    let num = parseInt(cad);
+    let fact = 0;
+
+    const factorial = (numero) => {
+      if (numero === 0) {
+        return 1;
+      } else {
+        fact = numero * factorial(numero - 1);
+        return fact;
+      }
+    }
+
+    (isNaN(num) !== false)
+      ? alert("No ha ingresado un número.")
+      : alert(`${num}!: ${factorial(num)}`);
+
+  </script>
+</body>
+
+</html>

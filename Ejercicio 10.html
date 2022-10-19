@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 10</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ejercicio 10</h1>
+  <p>
+    Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro),
+    pe.
+    miFuncion(2002) devolverá true.
+  </p>
+  <hr>
+  <a href="./index.html">Regregar a la Página Principal</a>
+
+
+  <script>
+    //10) Programa una función que reciba un número y evalúe si es capicúa o no (que se lee igual en un sentido que en otro), pe. miFuncion(2002) devolverá true.
+
+    let cad = prompt("Ingrese un número: ");
+    let num = parseInt(cad);
+    let cadReversa = "";
+
+    const numCapicua = (numero) => {
+      cadReversa = numero.split("").reverse().join("");
+      (numero === cadReversa)
+        ? alert(`El número ${num} es capicúa.`)
+        : alert(`El número ${num} no es capicúa.`);
+    }
+
+    (isNaN(num) !== false)
+      ? alert("No ha ingresado un número.")
+      : numCapicua(cad);
+
+  </script>
+</body>
+
+</html>

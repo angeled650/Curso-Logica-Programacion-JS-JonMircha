@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 14</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ejercicio 14</h1>
+  <p>
+    Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+  </p>
+  <hr>
+  <a href="./index.html">Regregar a la Página Principal</a>
+
+  <script>
+    //14) Programa una función para convertir grados Celsius a Fahrenheit y viceversa, pe. miFuncion(0,"C") devolverá 32°F.
+
+    let cad = prompt("Ingrese los grados: ");
+    let num = parseFloat(cad);
+    let unidad = prompt("Ingrese la letra 'C'  si los grados están en Celsius o una 'F' si los grados están en Fahrenheit: ");
+
+    const conversion = (grad, unidad = "") => {
+      let conversion = 0;
+      unidad = unidad.toUpperCase();
+
+      if (!unidad) {
+        return alert("No ha ingresado ninguna unidad.");
+      }
+
+      switch (unidad) {
+        case 'F': conversion = (grad - 32) * (5 / 9);
+          conversion = +conversion.toFixed(2);
+          alert(`${grad}°${unidad} = ${conversion}°C`);
+          break;
+        case 'C': conversion = (grad * (9 / 5)) + 32;
+          conversion = +conversion.toFixed(2);
+          alert(`${grad}°${unidad} = ${conversion}°F`);
+          break;
+        default: return alert("No ha ingresado una unidad válida.");
+      }
+    }
+
+    (isNaN(num) !== false)
+      ? alert("No ha ingresado un número.")
+      : conversion(num, unidad);
+
+  </script>
+</body>
+
+</html>

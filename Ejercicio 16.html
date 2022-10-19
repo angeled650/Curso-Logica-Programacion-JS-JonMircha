@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 16</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ejercicio 16</h1>
+  <p>
+    Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe.
+    miFuncion(1000, 20) devolverá 800.
+  </p>
+  <hr>
+  <a href="./index.html">Regregar a la Página Principal</a>
+
+  <script>
+    //16) Programa una función que devuelva el monto final después de aplicar un descuento a una cantidad dada, pe. miFuncion(1000, 20) devolverá 800.
+
+    let cadPrecio = prompt("Ingrese el precio del producto: ");
+    let precio = parseFloat(cadPrecio);
+    let cadDescuento = prompt("Ingrese el descuento a aplicar: ");
+    let descuento = parseInt(cadDescuento);
+
+    const validaciones = (preciox, descuentox) => {
+      if (!preciox) {
+        return alert("No ha ingresado ningún número en el precio.");
+      }
+      if (!descuentox) {
+        return alert("No ha ingresado ningún número en el descuento.");
+      }
+      if ((Math.sign(preciox) === -1) || (Math.sign(descuentox) === -1)) {
+        return alert("No puede ingresar un número negativo");
+      }
+      if ((descuentox > 100)) {
+        return alert("No puede ingresar un descuento mayor al 100%");
+      }
+      descuentoProducto(preciox, descuentox);
+    }
+
+    const descuentoProducto = (preciox, descuentox) => {
+      descuentox /= 100;
+      let precioFinal = preciox - (preciox * descuentox);
+
+      alert(`Precio Original: ${precio}$ - Precio con ${descuento}% de descuento: ${precioFinal}$`);
+    }
+
+    validaciones(precio, descuento);
+
+  </script>
+</body>
+
+</html>
