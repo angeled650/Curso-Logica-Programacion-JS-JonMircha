@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio 26</title>
+  <style>
+    html {
+      box-sizing: border-box;
+      font-family: sans-serif;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Ejercicio 26</h1>
+  <p>
+    Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0])
+    devolverá
+    4.5.
+  </p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br><br>
+  <hr>
+  <a href="../index.html">Regresar a la Página Principal</a>
+
+  <script>
+    //26) Programa una función que dado un arreglo de números obtenga el promedio, pe. promedio([9,8,7,6,5,4,3,2,1,0]) devolverá 4.5.
+    const $btn = document.getElementById("btn");
+
+    $btn.addEventListener("click", e => {
+      let tamanioArreglo = prompt("Ingrese el tamaño del arreglo: ");
+      let tamanio = parseInt(tamanioArreglo);
+
+      const validaciones = (tamanio = undefined) => {
+        if (tamanio == undefined) {
+          return alert("No ha ingresado ningún número.");
+        }
+
+        if (isNaN(tamanio) == true) {
+          return alert("No ha ingresado un número válido.")
+        }
+
+        if ((Math.sign(tamanio) === -1)) {
+          return alert("No puede ingresar un número negativo.");
+        }
+
+        return true;
+      }
+
+      const llenarArreglo = (tamanio) => {
+        let arreglo = [];
+        if (tamanio == 0) {
+          return alert("El tamaño del arreglo no puede ser 0.");
+        }
+
+        for (i = 0; i < tamanio; i++) {
+          let elemento = prompt(`Ingrese el elemento #${i + 1} del arreglo: `);
+          let elem = parseFloat(elemento);
+          if (validaciones(elem) == true) {
+            arreglo.push(elem);
+          } else {
+            return;
+          }
+        }
+        promedio(arreglo);
+      }
+
+      const promedio = (arreglo) => {
+        let prom = 0;
+        let ind = arreglo.length;
+        let sum = 0;
+
+        arreglo.forEach(element => {
+          sum += element;
+        });
+
+        prom = sum / ind;
+
+        alert(`Arreglo Original: [${arreglo}] | Promedio de los Elementos: ${prom}`);
+      }
+
+      if (validaciones(tamanio) == true) {
+        llenarArreglo(tamanio);
+      }
+    })
+  </script>
+</body>
+
+</html>

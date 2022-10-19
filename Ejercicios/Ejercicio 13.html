@@ -27,26 +27,30 @@
   <p>
     Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
   </p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br><br>
   <hr>
-  <a href="./index.html">Regregar a la Página Principal</a>
+  <a href="../index.html">Regresar a la Página Principal</a>
 
 
   <script>
     //13) Programa una función que determine si un número es par o impar, pe. miFuncion(29) devolverá Impar.
+    const $btn = document.getElementById("btn");
 
-    let cad = prompt("Ingrese un número: ");
-    let num = parseInt(cad);
+    $btn.addEventListener("click", e => {
+      let cad = prompt("Ingrese un número: ");
+      let num = parseInt(cad);
 
-    const paridad = (numero) => {
-      (numero % 2 === 0)
-        ? alert(`El número ${numero} es par.`)
-        : alert(`El número ${numero} no es par.`)
-    }
+      const paridad = (numero) => {
+        (numero % 2 === 0)
+          ? alert(`El número ${numero} es par.`)
+          : alert(`El número ${numero} no es par.`)
+      }
 
-    (isNaN(num) !== false)
-      ? alert("No ha ingresado un número.")
-      : paridad(num);
-
+      (isNaN(num) !== false)
+        ? alert("No ha ingresado un número.")
+        : paridad(num);
+    })
   </script>
 </body>
 

@@ -26,7 +26,11 @@
     .return {
       display: block;
       text-align: center;
+    }
 
+    #btn {
+      display: block;
+      margin: auto
     }
   </style>
 </head>
@@ -62,8 +66,10 @@
     Fantasy,
     Film Noir, Game-Show, History, Horror, Musical, Music, Mystery, News, Reality-TV, Romance, Sci-Fi, Short, Sport,
     Talk-Show, Thriller, War, Western.</p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br>
   <hr>
-  <a class="return" href="./index.html">Regregar a la Página Principal</a>
+  <a class="return" href="../index.html">Regresar a la Página Principal</a>
 
   <script>
     /* 27) Programa una clase llamada Pelicula.
@@ -244,7 +250,9 @@
 
       return true;
     }
-    window.addEventListener("load", e => {
+    const $btn = document.getElementById("btn");
+
+    $btn.addEventListener("click", e => {
       let numPeli = prompt(`Ingrese el número de Películas a agregar: `);
       let numePeli = parseInt(numPeli);
       let pelis = [];

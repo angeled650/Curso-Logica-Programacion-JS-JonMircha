@@ -27,12 +27,15 @@
   <p>Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo")
     devolverá
     10.</p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br><br>
   <hr>
-  <a href="./index.html">Regregar a la Página Principal</a>
+  <a href="../index.html">Regresar a la Página Principal</a>
   <script>
     //1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
+    const $btn = document.getElementById("btn");
 
-    window.addEventListener("load", e => {
+    $btn.addEventListener("click", e => {
 
       let pro = prompt("Ingrese una cadena de texto: ");
 

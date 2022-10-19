@@ -26,26 +26,30 @@
   <h1>Ejercicio 3</h1>
   <p>Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe.
     miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].</p>
+  <button id="btn">Haz click para probar el ejercicio</button>
+  <br><br>
   <hr>
-  <a href="./index.html">Regregar a la Página Principal</a>
+  <a href="../index.html">Regresar a la Página Principal</a>
   <script>
     //3) Programa una función que dada una String te devuelva un Array de textos separados por cierto caracter, pe. miFuncion('hola que tal', ' ') devolverá ['hola', 'que', 'tal'].
+    const $btn = document.getElementById("btn");
 
-    let cadena = prompt("Ingrese una cadena de texto: ");
-    console.log(`Cadena ingresada: ${cadena}`);
+    $btn.addEventListener("click", e => {
+      let cadena = prompt("Ingrese una cadena de texto: ");
+      console.log(`Cadena ingresada: ${cadena}`);
 
-    function cadenaDividir(cad, a) {
-      let dividir = cad.split(a);
-      console.log(`Cadena después de recortar:`);
-      for (i = 0; i < dividir.length; i++) {
-        console.log(`${dividir[i]}`);
+      function cadenaDividir(cad, a) {
+        let dividir = cad.split(a);
+        console.log(`Cadena después de recortar:`);
+        for (i = 0; i < dividir.length; i++) {
+          console.log(`${dividir[i]}`);
+        }
       }
-    }
 
-    let separador = prompt("Ingrese el separador de la cadena de texto: ");
+      let separador = prompt("Ingrese el separador de la cadena de texto: ");
 
-    cadenaDividir(cadena, separador);
-
+      cadenaDividir(cadena, separador);
+    })
   </script>
 </body>
 
