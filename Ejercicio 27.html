@@ -108,7 +108,7 @@
       }
 
       fichaTecnica() {
-        console.info(`| FICHA TECNICA DE LA PELICULA |\nID en IMDB: ${this.id}\nTitulo: ${this.titulo}\nDirector(es): ${this.director}\nAño de estreno: ${this.anio}\nPais(es): ${this.pais}\nGenero(s): ${this.genero}\nCalificacion en IMDB: ${this.calificacion}`);
+        console.log(`| FICHA TECNICA DE LA PELICULA |\nID en IMDB: ${this.id}\nTitulo: ${this.titulo}\nDirector(es): ${this.director}\nAño de estreno: ${this.anio}\nPais(es): ${this.pais}\nGenero(s): ${this.genero}\nCalificacion en IMDB: ${this.calificacion}`);
       }
     }
 
@@ -244,94 +244,93 @@
 
       return true;
     }
+    window.addEventListener("load", e => {
+      let numPeli = prompt(`Ingrese el número de Películas a agregar: `);
+      let numePeli = parseInt(numPeli);
+      let pelis = [];
 
-    let numPeli = prompt(`Ingrese el número de Películas a agregar: `);
-    let numePeli = parseInt(numPeli);
-    let pelis = [];
 
+      if (validaciones(numePeli) == true) {
+        for (let i = 0; i < numePeli; i++) {
+          let pais = [], genero = [];
+          let sal = 1;
+          let opc1 = true, opc2 = true;
 
-    if (validaciones(numePeli) == true) {
-      for (let i = 0; i < numePeli; i++) {
-        let pais = [], genero = [];
-        let sal = 1;
-        let opc1 = true, opc2 = true;
+          let id = prompt(`Ingrese el ID de IMDB de la pelicula: `);
+          if (validarId(id) == false) {
+            break;
+          }
 
-        let id = prompt(`Ingrese el ID de IMDB de la pelicula: `);
-        if (validarId(id) == false) {
-          break;
-        }
+          let titulo = prompt(`Ingrese el título de la pelicula: `);
+          if (validarTitulo(titulo) == false) {
+            break;
+          }
 
-        let titulo = prompt(`Ingrese el título de la pelicula: `);
-        if (validarTitulo(titulo) == false) {
-          break;
-        }
+          let director = prompt(`Ingrese el director de la pelicula: `);
+          if (validarDirector(director) == false) {
+            break;
+          }
 
-        let director = prompt(`Ingrese el director de la pelicula: `);
-        if (validarDirector(director) == false) {
-          break;
-        }
+          let anio = prompt(`Ingrese el año de la pelicula: `);
+          if (validarAnio(anio) == false) {
+            break;
+          }
 
-        let anio = prompt(`Ingrese el año de la pelicula: `);
-        if (validarAnio(anio) == false) {
-          break;
-        }
+          //Agregar Países
+          while (opc1 == true) {
+            let pais2 = prompt(`Ingrese el país de origen de la pelicula: `);
+            if (validarPais(pais2) == false) {
+              sal = 0;
+              break;
+            } else {
+              pais.push(pais2);
+              opc1 = confirm("¿Desea agregar otro país de origen a la película?");
+            }
+          }
 
-        //Agregar Países
-        while (opc1 == true) {
-          let pais2 = prompt(`Ingrese el país de origen de la pelicula: `);
-          if (validarPais(pais2) == false) {
-            sal = 0;
+          if (sal == 0) {
+            break;
+          }
+
+          //Agregar Géneros
+          while (opc2 == true) {
+            let gener = prompt(`Ingrese el genero de la pelicula: `);
+            if (validarGenero(gener) == false) {
+              sal = 0;
+              break;
+            } else {
+              genero.push(gener);
+              opc2 = confirm("¿Desea agregar otro género a la película?");
+            }
+          }
+
+          if (sal == 0) {
+            break;
+          }
+
+          let cali = prompt(`Ingrese la calificación de la pelicula: `);
+          let calificacion = parseFloat(cali);
+          if (validarCalificacion(calificacion) == false) {
             break;
           } else {
-            pais.push(pais2);
-            opc1 = confirm("¿Desea agregar otro país de origen a la película?");
+            calificacion = Math.round(calificacion * 10) / 10;
           }
-        }
 
-        if (sal == 0) {
-          break;
-        }
-
-        //Agregar Géneros
-        while (opc2 == true) {
-          let gener = prompt(`Ingrese el genero de la pelicula: `);
-          if (validarGenero(gener) == false) {
-            sal = 0;
-            break;
-          } else {
-            genero.push(gener);
-            opc2 = confirm("¿Desea agregar otro género a la película?");
+          let pel = {
+            id,
+            titulo,
+            director,
+            anio,
+            pais,
+            genero,
+            calificacion
           }
+          pelis[i] = new Pelicula(pel);
         }
 
-        if (sal == 0) {
-          break;
-        }
-
-        let cali = prompt(`Ingrese la calificación de la pelicula: `);
-        let calificacion = parseFloat(cali);
-        if (validarCalificacion(calificacion) == false) {
-          break;
-        } else {
-          calificacion = Math.round(calificacion * 10) / 10;
-        }
-
-        let pel = {
-          id,
-          titulo,
-          director,
-          anio,
-          pais,
-          genero,
-          calificacion
-        }
-        pelis[i] = new Pelicula(pel);
-      }
-
-      if (numePeli == 3) {
         pelis.forEach(elem => elem.fichaTecnica());
       }
-    }
+    })
   </script>
 </body>
 
