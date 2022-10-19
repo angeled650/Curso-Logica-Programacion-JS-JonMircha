@@ -32,18 +32,21 @@
   <script>
     //1) Programa una función que cuente el número de caracteres de una cadena de texto, pe. miFuncion("Hola Mundo") devolverá 10.
 
-    let pro = prompt("Ingrese una cadena de texto: ");
+    window.addEventListener("load", e => {
 
-    function num_car(cad) {
-      caracteres = cad.length;
+      let pro = prompt("Ingrese una cadena de texto: ");
 
-      switch (caracteres) {
-        case 0: alert("No ha ingresado ninguna cadena de texto."); break;
-        case 1: console.log(`Hay ${caracteres} caracter en ${pro}`); break;
-        default: console.log(`Hay ${caracteres} caracteres en ${pro}`);
+      function num_car(cad) {
+        caracteres = cad.length;
+
+        switch (caracteres) {
+          case 0: alert("No ha ingresado ninguna cadena de texto."); break;
+          case 1: console.log(`Hay ${caracteres} caracter en ${pro}`); break;
+          default: console.log(`Hay ${caracteres} caracteres en ${pro}`);
+        }
       }
-    }
-    num_car(pro);
+      num_car(pro);
+    })
   </script>
 </body>
 
